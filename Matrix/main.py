@@ -1,4 +1,3 @@
-# TODO здесь писать код
 
 class Matrix:
 
@@ -12,7 +11,7 @@ class Matrix:
 
     def add(self, other):
         if self.rows != other.rows or self.cols != other.cols:
-            raise ValueError("Матрицы должны иметь одинаковые размеры для сложения")
+            raise ValueError('The matrices must have the same dimensions for addition')
 
         result = Matrix(self.rows, self.cols)
         for i in range(self.rows):
@@ -22,7 +21,7 @@ class Matrix:
 
     def subtract(self, other):
         if self.rows != other.rows or self.cols != other.cols:
-            raise ValueError("Матрицы должны иметь одинаковые размеры для вычитания")
+            raise ValueError('The matrices must have the same dimensions for subtraction.')
 
         result = Matrix(self.rows, self.cols)
         for i in range(self.rows):
@@ -33,7 +32,7 @@ class Matrix:
     def multiply(self, other):
         if self.cols != other.rows:
             raise ValueError(
-                "Количество столбцов в первой матрице должно быть равно количеству строк во второй матрице")
+                'The number of columns in the first matrix should be equal to the number of rows in the second matrix.')
 
         result = Matrix(self.rows, other.cols)
         for i in range(self.rows):
@@ -50,31 +49,32 @@ class Matrix:
         return result
 
 
-# Создание экземпляров класса Matrix
+# Creating instances of the Matrix class
 m1 = Matrix(2, 3)
 m1.data = [[1, 2, 3], [4, 5, 6]]
 
 m2 = Matrix(2, 3)
 m2.data = [[7, 8, 9], [10, 11, 12]]
 
-# Тестирование операций
-print("Матрица 1:")
+
+# Testing operations
+print('Matrix 1:')
 print(m1)
 
-print("Матрица 2:")
+print('Matrix 2:')
 print(m2)
 
-print("Сложение матриц:")
+print('Matrix addition:')
 print(m1.add(m2))
 
-print("Вычитание матриц:")
+print('Matrix subtraction:')
 print(m1.subtract(m2))
 
 m3 = Matrix(3, 2)
 m3.data = [[1, 2], [3, 4], [5, 6]]
 
-print("Умножение матриц:")
+print('Matrix multiplication:')
 print(m1.multiply(m3))
 
-print("Транспонирование матрицы 1:")
+print('Matrix transposition 1:')
 print(m1.transpose())
